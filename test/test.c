@@ -1,4 +1,3 @@
-#include "func.h"
 #include "octree.h"
 #include <ctest.h>
 #include <stdio.h>
@@ -8,10 +7,10 @@ CTEST(index_suite, right) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {10.0, 10.0, 10.0};
+  float pos[NUM_DIM] = {10.0, 10.0, 10.0};
   unsigned num = 0;
   // When
-  const int8_t result = child_index(root, pos, &out);
+  const int8_t result = child_index(root, pos, &num);
   // Then
   const int8_t expected = 0;
   ASSERT_EQUAL(expected, result);
@@ -22,10 +21,10 @@ CTEST(index_suite, wrong) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float *position = NULL;
+  float *pos = NULL;
   unsigned num = 0;
   // When
-  const int8_t result = child_index(root, pos, &out);
+  const int8_t result = child_index(root, pos, &num);
   // Then
   const int8_t expected = 1;
   ASSERT_EQUAL(expected, result);
@@ -36,8 +35,9 @@ CTEST(index_suite, num_0) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {10.0, 10.0, 10.0};
+  float pos[NUM_DIM] = {10.0, 10.0, 10.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
@@ -49,8 +49,9 @@ CTEST(index_suite, num_1) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {60.0, 10.0, 10.0};
+  float pos[NUM_DIM] = {60.0, 10.0, 10.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
@@ -62,8 +63,9 @@ CTEST(index_suite, num_2) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {10.0, 60.0, 10.0};
+  float pos[NUM_DIM] = {10.0, 60.0, 10.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
@@ -75,8 +77,9 @@ CTEST(index_suite, num_3) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {60.0, 60.0, 10.0};
+  float pos[NUM_DIM] = {60.0, 60.0, 10.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
@@ -88,8 +91,9 @@ CTEST(index_suite, num_4) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {10.0, 10.0, 60.0};
+  float pos[NUM_DIM] = {10.0, 10.0, 60.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
@@ -101,8 +105,9 @@ CTEST(index_suite, num_5) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {60.0, 10.0, 60.0};
+  float pos[NUM_DIM] = {60.0, 10.0, 60.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
@@ -114,8 +119,9 @@ CTEST(index_suite, num_6) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {10.0, 60.0, 60.0};
+  float pos[NUM_DIM] = {10.0, 60.0, 60.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
@@ -127,8 +133,9 @@ CTEST(index_suite, num_7) {
   const float tsize = 100;
   float origin[NUM_DIM] = {tsize / 2, tsize / 2, tsize / 2};
   octree *root = octree_create(origin, origin);
-  float position[NUM_DIM] = {60.0, 60.0, 60.0};
+  float pos[NUM_DIM] = {60.0, 60.0, 60.0};
   unsigned num = 0;
+  child_index(root, pos, &num);
   // When
   const int8_t result = num;
   // Then
