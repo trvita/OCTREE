@@ -1,0 +1,6 @@
+*.o
+*.d
+main
+octree.gnuplot
+*.dat
+result.png
