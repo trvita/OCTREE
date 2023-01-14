@@ -1,6 +1,7 @@
 *.o
 *.d
-main
-octree.gnuplot
+bin/main
+bin/octree.gnuplot
+bin/test
 *.dat
-result.png
+bin/result.png
