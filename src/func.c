@@ -1,10 +1,4 @@
 #include "func.h"
-
-void swap(float *p1, float *p2) {
-  float temp = *p1;
-  *p1 = *p2;
-  *p2 = temp;
-}
 void gnuplot_cubes(octree *tree, FILE *out) {
   if (tree && !tree->leaf) {
     size_t i;
