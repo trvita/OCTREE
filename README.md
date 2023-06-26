@@ -4,8 +4,8 @@
 
     $ make bin/main && bin/test && result
 Запуск приложения:
+
     $ make run/main
-    
 Генерация изображения октодерева в result.png:
 
     $ make run/result
